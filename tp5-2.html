@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function rendreMonnaie(montant){
+            let coupure=[200, 100, 50,20,10,5,2,1];
+            let resultat=[];
+            let reste=montant;
+
+                coupure.forEach(function (item,index) {
+                    nbCoupure=Math.floor(reste/item);
+                    resultat[item]=nbCoupure;
+                    reste=reste%item;
+                    
+                });
+                return resultat;
+        }
+
+        console.log(rendreMonnaie(369));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

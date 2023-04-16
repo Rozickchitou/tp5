@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+  function luhnCheck(cardNumber) {
+ const cardArray = cardNumber.split('').reverse();
+ let sum = 0;
+ let position = 0;
+ cardArray.forEach(digit => {
+ const num = parseInt(digit, 10);
+ if (position % 2 == 1) {
+ let double = num * 2;
+ if (double > 9){
+ double -= 9;
+ }
+ sum += double;
+ }
+ else{
+ sum += num;
+ }
+ position++;
+ });
+ return sum % 10 == 0
+ }
+
+ var cardNumber = '79927398713';
+ const lastDigit = cardNumber.slice(-1);
+ const withoutLastDigit = cardNumber.substring(0, cardNumber.length - 1)
+ const isValid = luhnCheck(cardNumber);
+
+
+console.log(`Numero de carte : ${cardNumber}`);
+console.log(`chiffre de controle : ${lastDigit}`);
+console.log(`valide: ${isValid ? 'Oui' : 'Non'}`);
+</script>
+<body>
+    
+</body>
+</html>
